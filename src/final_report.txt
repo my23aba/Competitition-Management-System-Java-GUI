@@ -1,0 +1,9 @@
+Competitors:
+Competitor Number | Name | Category | Level | Age | Gender | Country | Scores
+
+Summary Statistics:
+Total Competitors: 0
+Average Overall Score: 0.0
+Maximum Overall Score: 0.0
+Minimum Overall Score: 0.0
+Frequency Report:
