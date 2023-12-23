@@ -135,6 +135,27 @@ public class CompetitionGUI extends JFrame {
         }
     }
 
+       private void addCompetitorFromForm() {
+        // For simplicity, let's use JOptionPane for user input
+        String name = JOptionPane.showInputDialog("Enter competitor name:");
+        String category = JOptionPane.showInputDialog("Enter competitor category:");
+        String level = JOptionPane.showInputDialog("Enter competitor level:");
+        int[] scores = new int[5];
+        for (int i = 0; i < 5; i++) {
+            String scoreStr = JOptionPane.showInputDialog("Enter score for round " + (i + 1) + ":");
+            scores[i] = Integer.parseInt(scoreStr);
+        }
+
+        // Generate a unique competitor number (replace this logic with your own)
+        int competitorNumber = competitorList.getAllCompetitors().size() + 1;
+
+        // Add the competitor to the CompetitorList
+        competitorList.addCompetitor(competitorNumber, name, category, level, scores);
+
+        // Update the competitor table
+        updateCompetitorTable();
+    }
+
     private void generateReport() {
         StringBuilder report = new StringBuilder();
 
@@ -167,26 +188,7 @@ public class CompetitionGUI extends JFrame {
         detailsTextArea.setText(report.toString());
     }
 
-    private void addCompetitorFromForm() {
-        // For simplicity, let's use JOptionPane for user input
-        String name = JOptionPane.showInputDialog("Enter competitor name:");
-        String category = JOptionPane.showInputDialog("Enter competitor category:");
-        String level = JOptionPane.showInputDialog("Enter competitor level:");
-        int[] scores = new int[5];
-        for (int i = 0; i < 5; i++) {
-            String scoreStr = JOptionPane.showInputDialog("Enter score for round " + (i + 1) + ":");
-            scores[i] = Integer.parseInt(scoreStr);
-        }
-
-        // Generate a unique competitor number (replace this logic with your own)
-        int competitorNumber = competitorList.getAllCompetitors().size() + 1;
-
-        // Add the competitor to the CompetitorList
-        competitorList.addCompetitor(competitorNumber, name, category, level, scores);
-
-        // Update the competitor table
-        updateCompetitorTable();
-    }
+ 
     
     
 /*private void loadCompetitorsFromCSV(String filePath) {
