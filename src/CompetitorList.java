@@ -34,6 +34,18 @@ public class CompetitorList {
         return null;
     }
 
+
+     public List<Competitor> getAllCompetitors() {
+        return competitors;
+    }
+
+    public Competitor getWinner() {
+        return competitors.stream()
+                .max((c1, c2) -> Double.compare(c1.getOverallScore(), c2.getOverallScore()))
+                .orElse(null);
+    }
+
+    
     public void removeCompetitor(int competitorNumber) {
         Competitor competitorToRemove = null;
         for (Competitor competitor : competitors) {
@@ -47,15 +59,7 @@ public class CompetitorList {
         }
     }
 
-    public List<Competitor> getAllCompetitors() {
-        return competitors;
-    }
-
-    public Competitor getWinner() {
-        return competitors.stream()
-                .max((c1, c2) -> Double.compare(c1.getOverallScore(), c2.getOverallScore()))
-                .orElse(null);
-    }
+   
 
 
     public void readCompetitorsFromCSV(String filePath) {
