@@ -71,27 +71,7 @@ public class CompetitionGUI extends JFrame {
 
   
     
-    private void updateCompetitorTable() {
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Competitor Number");
-        model.addColumn("Name");
-        model.addColumn("Category");
-        model.addColumn("Level");
-        model.addColumn("Scores");
-        for (Competitor competitor : competitorList.getAllCompetitors()) {
-            Object[] rowData = {
-                    competitor.getCompetitorNumber(),
-                    competitor.getName(),
-                    competitor.getCategory(),
-                    competitor.getLevel(),
-                    Arrays.toString(competitor.getScores())
-            };
-            model.addRow(rowData);
-        }
-        competitorTable.setModel(model);
-        String filePath = "C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\build\\classes\\competitors.csv";
-        competitorList.writeCompetitorsToCSV(filePath);
-    }
+  
 
     private void editCompetitorDetails() {
         int selectedRow = competitorTable.getSelectedRow();
@@ -122,6 +102,28 @@ public class CompetitionGUI extends JFrame {
 
                 // Update the CSV file
                 competitorList.writeCompetitorsToCSV("C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\build\\classes\\competitors.csv");}}
+    }
+
+      private void updateCompetitorTable() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Competitor Number");
+        model.addColumn("Name");
+        model.addColumn("Category");
+        model.addColumn("Level");
+        model.addColumn("Scores");
+        for (Competitor competitor : competitorList.getAllCompetitors()) {
+            Object[] rowData = {
+                    competitor.getCompetitorNumber(),
+                    competitor.getName(),
+                    competitor.getCategory(),
+                    competitor.getLevel(),
+                    Arrays.toString(competitor.getScores())
+            };
+            model.addRow(rowData);
+        }
+        competitorTable.setModel(model);
+        String filePath = "C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\build\\classes\\competitors.csv";
+        competitorList.writeCompetitorsToCSV(filePath);
     }
 
     private void removeCompetitor() {
