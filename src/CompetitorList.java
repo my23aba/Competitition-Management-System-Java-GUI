@@ -57,25 +57,7 @@ public class CompetitorList {
                 .orElse(null);
     }
 
-    // Method to write competitors to CSV file
-    public void writeCompetitorsToCSV(String filePath) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\build\\classes\\competitors.csv"))) {
-            for (Competitor competitor : competitors) {
-                String line = String.format("%d,%s,%s,%s,%s",
-                        competitor.getCompetitorNumber(),
-                        competitor.getName(),
-                        competitor.getCategory(),
-                        competitor.getLevel(),
-                        String.join(",", Arrays.stream(competitor.getScores()).mapToObj(String::valueOf).toArray(String[]::new)));
-                writer.write(line);
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    // Method to read competitors from CSV file
     public void readCompetitorsFromCSV(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\build\\classes\\competitors.csv"))) {
             String line;
@@ -93,9 +75,28 @@ public class CompetitorList {
         }
     }
 
-    // Add other methods as needed
+    public void writeCompetitorsToCSV(String filePath) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\build\\classes\\competitors.csv"))) {
+            for (Competitor competitor : competitors) {
+                String line = String.format("%d,%s,%s,%s,%s",
+                        competitor.getCompetitorNumber(),
+                        competitor.getName(),
+                        competitor.getCategory(),
+                        competitor.getLevel(),
+                        String.join(",", Arrays.stream(competitor.getScores()).mapToObj(String::valueOf).toArray(String[]::new)));
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+ 
+    
+
 
     public static void main(String[] args) {
-        // You can test the CompetitorList class here if needed
+       
     }
 }
