@@ -15,6 +15,15 @@ public class Competitor {
         this.scores = scores;
     }
 
+      public String getLevel() {
+        return level;
+    }
+
+    public int[] getScores() {
+        return scores;
+    }
+
+    
     public int getCompetitorNumber() {
         return competitorNumber;
     }
@@ -27,13 +36,7 @@ public class Competitor {
         return category;
     }
 
-    public String getLevel() {
-        return level;
-    }
-
-    public int[] getScores() {
-        return scores;
-    }
+  
 
     public double getOverallScore() {
         // Implement the logic to calculate the overall score
