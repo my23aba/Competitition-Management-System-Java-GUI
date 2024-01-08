@@ -48,8 +48,9 @@ public class CompetitionGUI extends JFrame {
         // Set up layout manager
         setLayout(new BorderLayout());
         JPanel buttonPanel = new JPanel();
-       buttonPanel.setLayout(new GridLayout(2, 4, 10, 10)); 
-        buttonPanel.setBackground(new Color(41, 128, 185));
+       buttonPanel.setLayout(new GridLayout(2, 4, 10, 10));  
+        buttonPanel.setBackground(new Color(36, 41, 46));  
+
         JButton[] buttons = {
                 generateReportButton, updateButton, editButton, removeButton,
                 reportButton, shortButton, addCompetitorButton, searchButton
