@@ -55,7 +55,9 @@ public class CompetitionGUI extends JFrame {
                 generateReportButton, updateButton, editButton, removeButton,
                 reportButton, shortButton, addCompetitorButton, searchButton
         };
-
+ for (JButton button : buttons) {
+            buttonPanel.add(customizeButton(button));
+        }
         buttonPanel.add(generateReportButton);
         buttonPanel.add(updateButton);
         buttonPanel.add(editButton);
