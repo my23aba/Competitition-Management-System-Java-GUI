@@ -49,7 +49,12 @@ public class CompetitionGUI extends JFrame {
         setLayout(new BorderLayout());
         JPanel buttonPanel = new JPanel();
        buttonPanel.setLayout(new GridLayout(2, 4, 10, 10)); 
-        buttonPanel.setBackground(new Color(41, 128, 185));  
+        buttonPanel.setBackground(new Color(41, 128, 185));
+        JButton[] buttons = {
+                generateReportButton, updateButton, editButton, removeButton,
+                reportButton, shortButton, addCompetitorButton, searchButton
+        };
+
         buttonPanel.add(generateReportButton);
         buttonPanel.add(updateButton);
         buttonPanel.add(editButton);
@@ -91,6 +96,14 @@ public class CompetitionGUI extends JFrame {
 
         // Initialize the competitor table
         updateCompetitorTable();
+    }
+private JButton customizeButton(JButton button) {
+        button.setBackground(new Color(52, 152, 219));  // Button background color
+        button.setForeground(Color.WHITE);  // Button text color
+        button.setFocusPainted(false);  // Remove focus border
+        button.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));  // Add padding
+
+        return button;
     }
 
     public void searchCompetitor() {
