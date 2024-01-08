@@ -69,7 +69,7 @@ public class CompetitionGUI extends JFrame {
 
         // Add the panels to the frame
         add(tablePanel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.NORTH);
+        add(buttonPanel, BorderLayout.SOUTH);
 
         setupButtonVisibility();
 
