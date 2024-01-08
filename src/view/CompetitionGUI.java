@@ -48,7 +48,8 @@ public class CompetitionGUI extends JFrame {
         // Set up layout manager
         setLayout(new BorderLayout());
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new FlowLayout());
+       buttonPanel.setLayout(new GridLayout(2, 4, 10, 10)); 
+        buttonPanel.setBackground(new Color(41, 128, 185));  
         buttonPanel.add(generateReportButton);
         buttonPanel.add(updateButton);
         buttonPanel.add(editButton);
@@ -59,11 +60,12 @@ public class CompetitionGUI extends JFrame {
         buttonPanel.add(searchField);
         buttonPanel.add(searchButton);
 
-        JPanel tablePanel = new JPanel();
+       JPanel tablePanel = new JPanel();
         tablePanel.setLayout(new BorderLayout());
         tablePanel.add(new JScrollPane(competitorTable), BorderLayout.CENTER);
-        tablePanel.add(detailsTextArea, BorderLayout.SOUTH);
-        tablePanel.add(searchResultTextArea, BorderLayout.NORTH);
+        tablePanel.add(detailsTextArea, BorderLayout.NORTH);
+        tablePanel.add(searchResultTextArea, BorderLayout.SOUTH);
+        
 
         // Add the panels to the frame
         add(tablePanel, BorderLayout.CENTER);
@@ -151,7 +153,7 @@ public class CompetitionGUI extends JFrame {
         }
 
         competitorTable.setModel(tableModel);
-        String filePath = "C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\src\\competitors.csv";
+        String filePath = "src\\competitors.csv";
         if ("staff".equals(currentUser.getRole())) {
         model.writeCompetitorsToCSV(filePath);
     }
@@ -392,7 +394,7 @@ private boolean isInteger(String str) {
             return;
         }
         
-        String filePath = "C:\\Users\\MOCIN\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication2\\src\\final_report.txt";  // Change this path
+        String filePath = "src\\final_report.txt";  
         model.produceFinalReport(filePath);
         JOptionPane.showMessageDialog(this, "Final report generated successfully!", "Report Generated", JOptionPane.INFORMATION_MESSAGE);
     }
